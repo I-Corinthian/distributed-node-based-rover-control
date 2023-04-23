@@ -1,0 +1,33 @@
+import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:web3dart/web3dart.dart';
+import 'package:http/http.dart' as http;
+
+class EthereumUtils {
+  late Web3Client web3client;
+  late http.Client httpClient;
+  final contractAddress = dotenv.env['CONTRACT_ADDRESS'];
+
+  void initial() {
+    httpClient = http.Client();
+    String infuraApi =
+        "https://goerli.infura.io/v3/864ad70d3c89434dae3dd904b7970481";
+    web3client = Web3Client(infuraApi, httpClient);
+  }
+
+  Future getmove() async {
+    final contract = await getDeployedContract();
+    final etherFunction = contract.function("getmove");
+    final result = await web3client
+        .call(contract: contract, function: etherFunction, params: []);
+    List<dynamic> res = result;
+    return res[0];
+  }
+
+  Future<DeployedContract> getDeployedContract() async {
+    String abi = await rootBundle.loadString("assets/abi.json");
+    final contract = DeployedContract(ContractAbi.fromJson(abi, "diar"),
+        EthereumAddress.fromHex(contractAddress!));
+    return contract;
+  }
+}
