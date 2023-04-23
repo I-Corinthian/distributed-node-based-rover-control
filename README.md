@@ -1,4 +1,4 @@
-# diar
+# distributed-node-based-rover-control
 
 A new Flutter project.
 
