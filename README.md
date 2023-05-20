@@ -1,15 +1,24 @@
 # distributed-node-based-rover-control
 
-A new Flutter project.
+This is a blockchain-based vehicle control system that uses a smart contract for authentication providing a more security.
 
-## Getting Started
+## used software 
 
-This project is a starting point for a Flutter application.
+- solidity smart contract 
+- Infura API 
+- flutter application 
+- python programming 
+- Solid works for the design of the rover 
 
-A few resources to get you started if this is your first Flutter project:
+### used hardware 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- raspberry pi 
+- Arduino UNO 
+
+The outcome of this project is the following:
+
+- To prove the implementation of blockchain technology for authentication
+- To investigate the efficiency of such a system 
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
